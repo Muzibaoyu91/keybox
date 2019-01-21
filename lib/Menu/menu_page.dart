@@ -1,13 +1,14 @@
 import 'package:keybox/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:keybox/Common/background_view.dart';
 
-class MainMenuWidget extends StatefulWidget{
-  MainMenuWidget({Key key}) : super(key:key);
+class MainMenuPage extends StatefulWidget{
+  MainMenuPage({Key key}) : super(key:key);
   @override
-    State<StatefulWidget> createState() => _MainMenuWidgetState();
+    State<StatefulWidget> createState() => _MainMenuPageState();
 }
 
-class _MainMenuWidgetState extends State<MainMenuWidget> {
+class _MainMenuPageState extends State<MainMenuPage> {
   bool _isSearching = false;//是否在搜索
 
   Future<bool> _popSearch(){
@@ -23,7 +24,8 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
     Widget build(BuildContext context) {
       return WillPopScope(
         onWillPop: _popSearch,
-        child: Container(
+        child: BackgroundView(
+          // child: Text('Hello!'),
         ),
       );
     }
