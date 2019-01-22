@@ -11,8 +11,12 @@ class BackgroundView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
+
     return Container(
+      child: Container(
+      color: Color.fromRGBO(0, 0, 0, 0.3),
       child: child,
+    ),
       width: deviceSize.width,
       height: deviceSize.height,
       decoration: BoxDecoration(
