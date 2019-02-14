@@ -11,9 +11,9 @@ class MyApp extends StatelessWidget{
         child: MaterialApp(
           title: 'K-Box',
           theme: ThemeData(
-            primarySwatch: Colors.amber,
-            backgroundColor: Colors.transparent,
-            scaffoldBackgroundColor: Colors.transparent,
+            primaryColor: Colors.amber,
+            backgroundColor: background,
+            scaffoldBackgroundColor: background,
             ),
             home: loginPage(),
         ),

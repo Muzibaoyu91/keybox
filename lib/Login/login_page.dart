@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:keybox/Common/background_view.dart';
 import 'package:keybox/colors.dart';
+import 'package:keybox/Menu/menu_page.dart';
 
 class loginPage extends StatefulWidget {
   loginPage({
@@ -99,7 +100,9 @@ class loginPageState extends State<loginPage> {
 
     return InkWell(
       onTap: () {
-        print('点击了登录');
+        Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => MainMenuPage()),
+                    (router) => router == null);
       },
       child: _btn,
     );

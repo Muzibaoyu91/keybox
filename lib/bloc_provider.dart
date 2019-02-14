@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:keybox/Common/keyModel.dart';
 
 class BlocProvider extends InheritedWidget{
   BlocProvider({
@@ -6,7 +7,7 @@ class BlocProvider extends InheritedWidget{
     Widget child
   }):super(child : child);
 
-  List mainKeyList = [];
+  List<KeyModel> mainKeyList = [];
 
   //定义一个便捷方法，方便子树中的widget获取共享数据  
   static BlocProvider of(BuildContext context) {
