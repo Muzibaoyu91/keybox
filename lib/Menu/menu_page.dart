@@ -4,6 +4,7 @@ import 'package:keybox/Common/background_view.dart';
 import 'package:keybox/Common/collapsible.dart';
 import 'package:keybox/bloc_provider.dart';
 import 'package:keybox/Common/keyModel.dart';
+import 'menu_section.dart';
 
 class MainMenuPage extends StatefulWidget {
   MainMenuPage({Key key}) : super(key: key);
@@ -25,58 +26,46 @@ class _MainMenuPageState extends State<MainMenuPage> {
 
   @override
   Widget build(BuildContext context) {
-
     List<Widget> tail = [];
 
     List<KeyModel> _dataSource = [];
 
-    if(_isSearching){
-
-    }else{
+    for (var i = 0; i < 40; i++) {
+      MenuSection section = MenuSection('', '', '', false);
+      tail.add(section);
     }
+
+    if (_isSearching) {
+    } else {}
 
     return Scaffold(
       appBar: null,
       body: BackgroundView(
-        child:SingleChildScrollView(
-          padding:
-                    EdgeInsets.only(top: 30.0, left: 20, right: 20, bottom: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Collapsible(
-                isCollapsed: _isSearching,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "钥匙盒子",
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          color: darkText.withOpacity(darkText.opacity * 0.75),
-                          fontSize: 34,
-                          fontFamily: "RobotoMedium"),
-                    ),
-                    Text(
-                      'DataSource = $_dataSource'
-                    ),
-                    RaisedButton(
-                      child: Text('click'),
-                      onPressed: (){
-                        print('点击了');
-                        setState(() {
-                          KeyModel model = KeyModel()..userName = 'Baoy';
-                          _dataSource.add(model);
-                        });
-                      },
-                    )
-                  ],
-                ),
-              )
-            ],
-          )
-        )
-      ),
+          child: SingleChildScrollView(
+              padding:
+                  EdgeInsets.only(top: 30.0, left: 20, right: 20, bottom: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Collapsible(
+                    isCollapsed: _isSearching,
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                              Text(
+                                "钥匙盒",
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    color: darkText
+                                        .withOpacity(darkText.opacity * 0.75),
+                                    fontSize: 34,
+                                    fontFamily: "RobotoMedium"),
+                              ),
+                            ] +
+                            tail),
+                  )
+                ],
+              ))),
     );
   }
 }
