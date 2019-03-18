@@ -32,7 +32,11 @@ class _MainMenuPageState extends State<MainMenuPage> {
 
     for (var i = 0; i < 40; i++) {
       MenuSection section = MenuSection('', '', '', false);
-      tail.add(section);
+      tail
+        ..add(section)
+        ..add(Container(
+          height: 20,
+        ));
     }
 
     if (_isSearching) {
@@ -43,7 +47,7 @@ class _MainMenuPageState extends State<MainMenuPage> {
       body: BackgroundView(
           child: SingleChildScrollView(
               padding:
-                  EdgeInsets.only(top: 30.0, left: 20, right: 20, bottom: 20),
+                  EdgeInsets.only(top: 20.0, left: 20, right: 20, bottom: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -52,15 +56,18 @@ class _MainMenuPageState extends State<MainMenuPage> {
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                              Text(
-                                "钥匙盒",
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                    color: darkText
-                                        .withOpacity(darkText.opacity * 0.75),
-                                    fontSize: 34,
-                                    fontFamily: "RobotoMedium"),
-                              ),
+                              Padding(
+                                padding: EdgeInsets.only(top: 20, bottom: 10),
+                                child: Text(
+                                  "钥匙盒",
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      color: darkText
+                                          .withOpacity(darkText.opacity * 0.75),
+                                      fontSize: 34,
+                                      fontFamily: "RobotoMedium"),
+                                ),
+                              )
                             ] +
                             tail),
                   )

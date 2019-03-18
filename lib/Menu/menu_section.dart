@@ -80,26 +80,72 @@ class _SectionState extends State<MenuSection>
 
   @override
   Widget build(BuildContext context) {
+    Container _icon = Container(
+      width: 40,
+      height: 40,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+          color: Colors.blue[400]),
+      child: Text(
+        'G',
+        style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold),
+      ),
+    );
+
+    Container _mainTitle = Container(
+      width: 250,
+      height: 30,
+      child: Text('Gmail', style: TextStyle(fontSize: 20, color: Colors.black)),
+    );
+
+    Container _subTitle = Container(
+      width: 250,
+      height: 25,
+      alignment: Alignment.topLeft,
+      child: Text('pierrebaoy@gmail.com',
+          style: TextStyle(
+            fontSize: 15,
+            color: Colors.black54,
+          )),
+    );
+
     return GestureDetector(
       onTap: _toggleExpand,
       child: Container(
+        padding: EdgeInsets.only(
+          top: 10,
+          bottom: 10,
+        ),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10), color: Colors.blue[300]),
+            borderRadius: BorderRadius.circular(10), color: Colors.white),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(10.0),
           child: Column(
             children: <Widget>[
               Container(
-                height: 100,
                 child: Row(
                   children: <Widget>[
-                    CircleAvatar(
-                      backgroundColor: Colors.yellow,
+                    SizedBox(
+                      width: 10,
                     ),
                     Column(
                       children: <Widget>[
-                        Text('主标题主标题主标题'),
-                        Text('fubiaotifubiaotifubiaoti')
+                        _icon,
+                        SizedBox(
+                          height: 10,
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      children: <Widget>[
+                        _mainTitle,
+                        _subTitle,
                       ],
                     )
                   ],
